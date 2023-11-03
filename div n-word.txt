@@ -1,0 +1,24 @@
+;10.Write a program for division of an n-word array with a 16-bit number
+MOV SI,3000H
+MOV DI,3010H
+MOV CL,05H
+MOV BX,1234H
+LABEL:
+MOV DX,0000H
+MOV AX,[SI]
+DIV BX
+JC LABEL2
+ADD SI,20H
+MOV [SI],AH
+INC SI
+MOV [SI],AL
+SUB SI,20H
+LABEL2:
+MOV [DI],DH
+INC DI
+MOV [DI],DL
+INC SI
+INC DI
+DEC CL
+JNZ LABEL
+HLT
